@@ -17,12 +17,10 @@ export const postExpense = async (req, res) => {
 	const db = db_connection();
 
 	try {
-
 		await db.collection("expenses").insertOne(expense);
 		await getAllExpenses(req,res);
         
 	} catch (err) {
-        
 		res.status(500).send(err);
 	}
 };
