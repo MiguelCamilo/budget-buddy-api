@@ -1,11 +1,10 @@
-import { MongoClient, ObjectId } from "mongodb";
 import dotenv from "dotenv";
 import express from "express"
 import cors from "cors"
 dotenv.config();
 
 // imports expenses
-import { getAllExpenses } from "./src/expenses.js";
+import { getAllExpenses, postExpense } from "./src/expenses.js";
 // imports income
 
 // imports forums
@@ -14,13 +13,17 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const client = new MongoClient(process.env.URI)
-const db = client.db(process.env.DB)
+const PORT = 3030
 
 // expenses CRUD
-app.post('/expenses', )
+app.post('/expenses', postExpense)
 app.get('/expenses', getAllExpenses)
 
 // income CRUD
 
 // forums CRUD
+
+
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`)
+})
