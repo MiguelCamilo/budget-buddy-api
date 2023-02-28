@@ -4,7 +4,7 @@ import cors from "cors"
 dotenv.config();
 
 // imports expenses
-import { getAllExpenses, postExpense } from "./src/expenses.js";
+import { getAllExpenses, postExpense } from "./src/expenses/expenses.js";
 // imports income
 
 // imports forums

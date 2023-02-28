@@ -1,5 +1,5 @@
 // import { ObjectId } from "mongodb";
-import { db_connection } from "./db_connection.js";
+import { db_connection } from "../connection/db_connection.js";
 
 // get all
 export const getAllExpenses = async (req, res) => {
