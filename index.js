@@ -4,7 +4,7 @@ import cors from "cors"
 dotenv.config();
 
 // imports expenses
-import { getAllExpenses, postExpense } from "./src/expenses/expenses.js";
+import { getAllExpenses, postExpense, deleteExpense } from "./src/expenses/expenses.js";
 // imports income
 
 // imports forums
@@ -18,7 +18,7 @@ const PORT = 3030
 // expenses CRUD
 app.post('/expenses', postExpense)
 app.get('/expenses', getAllExpenses)
-
+app.delete('/expenses/:id', deleteExpense)
 // income CRUD
 
 // forums CRUD
