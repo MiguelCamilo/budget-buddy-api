@@ -3,9 +3,8 @@ import express from "express"
 import cors from "cors"
 dotenv.config();
 
-// imports expenses
-import { getAllExpenses, postExpense, deleteExpense } from "./src/expenses/expenses.js";
-// imports income
+import { get_all_expenses, post_expenses, delete_expenses } from "./src/expenses/expenses.js";
+import { get_all_income, post_income, delete_income } from "./src/income/income.js";
 
 // imports forums
 
@@ -15,11 +14,16 @@ app.use(express.json())
 
 const PORT = 3030
 
-// expenses CRUD
-app.post('/expenses', postExpense)
-app.get('/expenses', getAllExpenses)
-app.delete('/expenses/:id', deleteExpense)
-// income CRUD
+// expenses 
+app.post('/expenses', post_expenses)
+app.get('/expenses', get_all_expenses)
+app.delete('/expenses/:id', delete_expenses)
+
+
+// income 
+app.post('/income', post_income)
+app.get('/income', get_all_income)
+app.delete('/income/:id', delete_income)
 
 // forums CRUD
 
