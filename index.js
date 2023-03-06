@@ -25,7 +25,7 @@ app.post('/income', post_income)
 app.get('/income', get_all_income)
 app.delete('/income/:id', delete_income)
 
-// forums CRUD
+// forums
 
 
 app.listen(PORT, () => {
