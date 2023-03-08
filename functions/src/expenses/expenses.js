@@ -11,7 +11,13 @@ export const get_all_expenses = async (req, res) => {
 
 // post
 export const post_expenses = async (req, res) => {
-	const expense = req.body;
+	const { type, title, amount } = req.body;
+
+	if ( title.length < 1 || amount.length <= 0 ) {
+		return res.status(500).send({ message: "Please enter a title and amount"})
+	}
+
+	const expense = { type, title, amount }
 	const db = db_connection();
 
 	try {
