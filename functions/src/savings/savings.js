@@ -5,7 +5,7 @@ export const get_all_savings = async (req, res) => {
 	const db = db_connection();
     // .sort() let's you sort by 1 being ascending and descinding
 	const collection = await db.collection("savings").find({}).sort({ amount: -1 }).toArray();
-    res.send(({ collection, messsage: "Success!"}))
+    res.send(collection)
 };
 
 // post
