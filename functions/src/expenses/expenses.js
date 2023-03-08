@@ -13,6 +13,7 @@ export const get_all_expenses = async (req, res) => {
 export const post_expenses = async (req, res) => {
 	const { type, title, amount } = req.body;
 
+	// validation 
 	if ( title.length < 1 || amount.length <= 0 ) {
 		return res.status(500).send({ message: "Please enter a title and amount"})
 	}
@@ -26,7 +27,7 @@ export const post_expenses = async (req, res) => {
         res.status(200).send({ message: "Added expense successfully.", data: all_expenses });
 
 	} catch (err) {
-		res.status(500);
+		res.status(500).send({ message: "Unable to add expense"})
 	}
 };
 
@@ -41,7 +42,9 @@ export const delete_expenses = async (req, res) => {
 		res.status(200).send({ message: "Expense successfully deleted.", data: all_expenses})
 
 	} catch (err) {
-		res.status(500);
+		res.status(500).send({ message: "Unable to delete"});
 	}
 	
 }
+
+// cracking the code interview

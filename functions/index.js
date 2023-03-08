@@ -5,6 +5,7 @@ import cors from "cors"
 
 import { get_all_expenses, post_expenses, delete_expenses  } from "./src/expenses/expenses.js"
 import { get_all_income, post_income, delete_income } from "./src/income/income.js"
+import { get_all_savings, post_savings } from "./src/savings/savings.js"
 
 // imports forums
 
@@ -23,6 +24,9 @@ app.post('/income', post_income)
 app.get('/income', get_all_income)
 app.delete('/income/:id', delete_income)
 
+// savings
+app.post('/savings', post_savings)
+app.get('/savings', get_all_savings)
 // forums
 
 export const api = functions.https.onRequest(app)
