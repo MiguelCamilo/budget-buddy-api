@@ -1,3 +1,4 @@
+import { ObjectId } from "bson";
 import { db_connection } from "../connection/db_connection.js";
 
 // get all
@@ -29,3 +30,17 @@ export const post_savings = async (req, res) => {
 		res.status(500).send({ message: "Unable to add savings"})
 	}
 };
+
+// delete 
+export const delete_savings = async (req, res) => {
+    const query = { _id: new ObjectId(req.params.id)}
+    const db = db_connection();
+
+    try {
+        await db.collection("savings").deleteOne(query);
+        const all_savings = await get_all_savings(req,res)
+        res.status(200).send({ message: "Successfully deleted savings.", data: all_savings });
+    } catch (err) {
+        res.status(500).send({ message: "Unable to delete savings." });
+    }
+}
