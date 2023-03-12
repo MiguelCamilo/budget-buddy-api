@@ -6,7 +6,7 @@ export const get_all_income = async (req,res) => {
     const db = db_connection()
 
     const collection = await db.collection("income").find({}).sort({ amount: -1 }).toArray();
-    return collection
+    res.send(collection)
 }
 
 // post

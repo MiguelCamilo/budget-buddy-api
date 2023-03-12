@@ -6,7 +6,7 @@ export const get_all_forum = async (req, res) => {
     const db = db_connection()
 
     const collection = await db.collection("forums").find({}).toArray()
-    return collection
+    return res.status(200).send(collection)
 }
 
 export const post_forum = async (req, res) => {

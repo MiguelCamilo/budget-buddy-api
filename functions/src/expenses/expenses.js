@@ -6,7 +6,7 @@ export const get_all_expenses = async (req, res) => {
 	const db = db_connection();
     // .sort() let's you sort by 1 being ascending and descinding
 	const collection = await db.collection("expenses").find({}).sort({ amount: -1 }).toArray();
-    return collection
+    res.send(collection)
 };
 
 // post
