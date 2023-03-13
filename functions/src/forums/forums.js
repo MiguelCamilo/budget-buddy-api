@@ -10,13 +10,13 @@ export const get_all_forum = async (req, res) => {
 }
 
 export const post_forum = async (req, res) => {
-    const { title, info } = req.body
-
-    if ( title.length < 1 || info.length <= 0 ) {
-        return res.status(500).send({ message: "Please enter a title and information."})
-    }
+    const { title, info, timestamp } = req.body
     
-    const post = { title, info }
+    const post = {
+        title,
+        info,
+        timestamp: new Date(timestamp)
+    }
     const db = db_connection()
 
     try { 
