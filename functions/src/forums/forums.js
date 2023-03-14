@@ -10,12 +10,13 @@ export const get_all_forum = async (req, res) => {
 }
 
 export const post_forum = async (req, res) => {
-    const { title, info, timestamp } = req.body
+    const { title, info, timestamp, userId } = req.body
     
     const post = {
         title,
         info,
-        timestamp: new Date(timestamp)
+        timestamp: new Date(timestamp),
+        userId
     }
     const db = db_connection()
 
