@@ -46,5 +46,3 @@ export const delete_expenses = async (req, res) => {
 	}
 	
 }
-
-// cracking the code interview

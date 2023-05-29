@@ -6,7 +6,7 @@ import { time } from "console";
 export const get_all_forum = async (req, res) => {
     const db = db_connection()
 
-    const collection = await db.collection("forums").find({}).sort({ timestamp: -1 }).toArray()
+    const collection = await db.collection("forums").find({}).sort({ title: 1 }).toArray()
     return res.status(200).send(collection)
 }
 
@@ -17,7 +17,7 @@ export const post_forum = async (req, res) => {
         title,
         info,
         timestamp,
-        userId
+        userId,
     }
     const db = db_connection()
 
