@@ -1,11 +1,12 @@
 import { errorMonitor } from "events";
 import { db_connection } from "../connection/db_connection.js";
+import { time } from "console";
 
 // get all
 export const get_all_forum = async (req, res) => {
     const db = db_connection()
 
-    const collection = await db.collection("forums").find({}).toArray()
+    const collection = await db.collection("forums").find({}).sort(1).toArray()
     return res.status(200).send(collection)
 }
 
@@ -15,7 +16,7 @@ export const post_forum = async (req, res) => {
     const post = {
         title,
         info,
-        timestamp: new Date(timestamp),
+        timestamp,
         userId
     }
     const db = db_connection()
