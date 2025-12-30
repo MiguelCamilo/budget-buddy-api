@@ -8,7 +8,7 @@ import { get_all_savings, post_savings, delete_savings } from "./src/savings/sav
 import { get_all_forum, post_forum } from "./src/forums/forums.js"
 
 const app = express()
-app.use(cors())
+app.use(cors({ origin: true }))
 app.use(express.json())
 
 // expenses 
