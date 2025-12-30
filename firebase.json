@@ -18,6 +18,7 @@
       "source": "functions",
       "runtime": "nodejs20",
       "codebase": "default",
+      "invoker": "public",
       "ignore": [
         "node_modules",
         ".git",
